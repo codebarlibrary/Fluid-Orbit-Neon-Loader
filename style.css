@@ -1,0 +1,102 @@
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@500&display=swap');
+
+body {
+    background: #050505;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Orbitron', sans-serif;
+}
+
+.loader-container {
+    text-align: center;
+}
+
+
+.liquid-spinner {
+    position: relative;
+    width: 80px;
+    height: 80px;
+    filter: url('#gooey');
+    margin: 0 auto 20px;
+}
+
+.liquid-spinner span {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: block;
+    transform: rotate(calc(90deg * var(--i)));
+}
+
+.liquid-spinner span::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 20px;
+    height: 20px;
+    background: #00f3ff;
+    border-radius: 50%;
+    box-shadow: 0 0 10px #00f3ff, 0 0 30px #00f3ff;
+    animation: moveLiquid 2s linear infinite;
+    animation-delay: calc(0.1s * var(--i));
+}
+
+
+.liquid-spinner span:nth-child(1) {
+    --i: 1;
+}
+
+.liquid-spinner span:nth-child(2) {
+    --i: 2;
+}
+
+.liquid-spinner span:nth-child(3) {
+    --i: 3;
+}
+
+.liquid-spinner span:nth-child(4) {
+    --i: 4;
+}
+
+@keyframes moveLiquid {
+    0% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.5);
+    }
+
+    100% {
+        transform: scale(1);
+        top: 100%;
+        left: 100%;
+    }
+}
+
+
+.liquid-spinner {
+    animation: rotateAll 2s linear infinite;
+}
+
+@keyframes rotateAll {
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+.loading-text {
+    color: #8b949e;
+    font-size: 0.7rem;
+    letter-spacing: 3px;
+    margin-top: 55px;
+}
